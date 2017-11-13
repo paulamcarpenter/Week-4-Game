@@ -14,7 +14,9 @@
 </head>
 <body>
 
-  <h1>Number to Guess: <span id="number-to-guess"></span></h1>	
+  <h1>Crystal Collector!</h1>
+  <h2>Number to Guess: <span id="number-to-guess"></span></h2>
+  <h3>You will be given a random number at the start of the game.<br>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.<br>You win the game by matching your total score to the random number. You lose the game is your total score goes above the random number.<br>The value of each crystal is hidden from you until you click on it.<br>Each time when the game starts, the game will change the value of the crystals.</h3>
 
   <!-- Note that this div is now empty. We will fill it dynamically -->
   <div id="crystals">
@@ -26,6 +28,7 @@
 
   <script type="text/javascript">
 
+//THIS RANDOM NUMBER NEEDS TO BE REGENERATED AT START OF EACH GAME AND BE BETWEEN 19-120//
   var targetNumber = 53;
 
   $("#number-to-guess").text(targetNumber);
@@ -34,7 +37,7 @@
 
   // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
-  // We begin by expanding our array to include four options.
+//THESE 4 RANDOM NUMBER NEEDS TO BE REGENERATED AT START OF EACH GAME AND BE BETWEEN 1-12//
   var numberOptions = [10, 5, 3, 7];
 
  // Next we create a for loop to create crystals for every numberOption.
@@ -70,6 +73,8 @@
     crystalValue = parseInt(crystalValue);
     // We then add the crystalValue to the user's "counter" which is a global variable.
     // Every click, from every crystal adds to the global counter.   
+    
+// THIS SCORE NEEDS TO BE REGENERATED AT START OF EACH GAME TO 0// 
     counter += crystalValue;  
 
     // All of the same game win-lose logic applies. So the rest remains unchanged.
@@ -86,5 +91,8 @@
   });
 
   </script>
+
+<!-- THE APP SHOULD SHOW THE NUMBER OF GAMES THE PLAYER WINS AND LOSES PLUS TOTAL SCORE: DO NOT REFRESH PAGE TO RESTART GAME -->
+  <h3>Total Score:<br><br>Wins:<br>Losses:<br>
 </body>
 </html>
