@@ -26,20 +26,27 @@
 
   <!-- Note that this div is now empty. We will fill it dynamically -->
   <div id="crystals">
+  
   </div>	
 
     <!-- JAVASCRIPT  -->
   <!-- ========================================= -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <script type="text/javascript">
+  <script type="text/javascript"> -->
+
+  // <!-- <script src="assets/javascript/game.js" type="text/javascript"> -->
+
+
 
 //THIS RANDOM NUMBER NEEDS TO BE REGENERATED AT START OF EACH GAME AND BE BETWEEN 19-120//
-  var targetNumber = 53;
+  var targetNumber = 50;
 
   $("#number-to-guess").text(targetNumber);
 
   var counter = 0;
+  var wins = 0;
+  var losses = 0;
 
   // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
@@ -87,18 +94,35 @@
     alert("New score: " + counter);
 
     if (counter === targetNumber) {
+      wins++;
       alert("You win!");
+      location.reload();
     }
 
     else if (counter >= targetNumber) {
+      losses++;
       alert("You lose!!");
+      location.reload();
     }
+
+    var html =
+      "<p>Your total score is: " + counter + "</p>" +
+      "<p>Wins " + wins + "</p>" +
+      "<p>Losses " + losses + "</p>"
+
+
+//Need help with this code below: Its not updating the total score/wins/losses I've create but instead creating new wins/losses.....
+    //var myDivContents = document.getElementById("crystals").innerHTML = html;
 
   });
 
   </script>
 
+
 <!-- THE APP SHOULD SHOW THE NUMBER OF GAMES THE PLAYER WINS AND LOSES PLUS TOTAL SCORE: DO NOT REFRESH PAGE TO RESTART GAME -->
   <h4>Your total score is:</h4>
+  <h4>Wins:</h4>
+  <h4>Losses:</h4>
+
 </body>
 </html>
